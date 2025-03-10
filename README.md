@@ -22,54 +22,71 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+# Auth Backend
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+This is a NestJS-based authentication backend. It provides endpoints for user registration, login, and profile management.
 
-## Project setup
+## Prerequisites
 
-```bash
-$ npm install
-```
+- Node.js (>= 14.x)
+- MongoDB
+- npm or yarn
 
-## Compile and run the project
+## Installation
 
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
-
-## Run tests
+1. Clone the repository:
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+git clone https://github.com/zeinaMnada/auth-backend.git
+cd auth-backend
 ```
 
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+2. Install dependencies:
 
 ```bash
-$ npm install -g mau
-$ mau deploy
+npm install
+# or
+yarn install
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+3. Create a `.env` file in the `src` directory and add the following environment variables:
+
+```properties
+PORT=4000
+NODE_ENV=development
+JWT_SECRET=your-jwt-secret
+MONGODB_URI=mongodb://localhost/nest-auth
+```
+
+## Running the Application
+
+1. Start the MongoDB server if it's not already running:
+
+```bash
+mongod
+```
+
+2. Start the NestJS application:
+
+```bash
+npm run start
+# or
+yarn start
+```
+
+The application will be running at `http://localhost:4000`.
+
+## API Endpoints
+
+### Authentication
+
+- **POST /auth/signup**: Register a new user.
+- **POST /auth/signin**: Login with email and password.
+- **POST /auth/signout**: Logout the user.
+
+### Users
+
+- **GET /users/profile**: Get the profile of the logged-in user.
 
 ## Resources
 
